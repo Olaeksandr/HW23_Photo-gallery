@@ -1,4 +1,7 @@
 const {series, src, dest} = require('gulp');
+const concat = require('gulp-concat');
+const babel = require('gulp-babel');
+const sass = require('gulp-sass');
 
 function defaultTask(cb) {
     console.log('Gulp is running');
@@ -8,22 +11,26 @@ function defaultTask(cb) {
 function html() {
     console.log('building html');
     return src('./src/index.html')
-        .pipe(dest('./dist/index.html'));
-    
+            .pipe(dest('./dist'));
 }
 
-function scripts(cb) {
+function scripts() {
     console.log('building scripts');
-    cb();    
+    return src('./src/**/*.js')
+            .pipe(babel())
+            .pipe(concat('all.js'))
+            .pipe(dest('./dist'));
 }
 
-function styles(cb) {
+function styles() {
     console.log('building styles');
-    cb();    
+    return src('./src/styles.sass')
+            .pipe(sass())
+            .pipe(dest('./dist'));
 }
 
 module.exports = {
     default: defaultTask,
     build: series(html, scripts, styles)
-}
+};
 
