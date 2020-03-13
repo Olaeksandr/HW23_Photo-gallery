@@ -1,3 +1,9 @@
-console.log('app.js');
+$(() => {
+    const a = 'app.js';
+     console.log(a);
+     console.log('jQuery');
 
-const a = 'app.js';
+})
+
+// c = 'app.js';
+// console.log(c);
