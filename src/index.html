@@ -15,9 +15,21 @@
     <!-- inject:js -->
     <!-- the rest of the *.js files will be injected here -->
     <!-- endinject -->
-    
+    <!-- <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/imagelightbox/dist/imagelightbox.min.css">
+    <script src="./app.js" defer></script> -->
 </head>
 <body>
+    <div id="imageList"></div>
+
+<template id="imageTemplate">
+<a href="{{url}}"
+  data-imagelightbox="demo"
+  data-ilb2-caption={{title}} 
+  data-id="{{id}}">
+  <img src="{{thumbnailUrl}}">
+</a>
+</template>
     
 </body>
 </html>

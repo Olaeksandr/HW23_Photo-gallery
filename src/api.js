@@ -1,4 +1,6 @@
-console.log('api.js');
+const API = {};
 
-// b = 'api.js';
-// console.log(b);
+API.getPhotos = () => {
+    return fetch('https://jsonplaceholder.typicode.com/photos')
+    .then(resp =>resp.json());
+};

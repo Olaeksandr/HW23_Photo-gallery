@@ -17,8 +17,9 @@ function html() {
 }
 
 function vendorsJS() {
-    return src(['./node_modules/jquery/dist/jquery.js' 
-    //jqueryUI    
+    return src([
+    './node_modules/jquery/dist/jquery.min.js',
+    './node_modules/imagelightbox/dist/imagelightbox.min.js' 
 ])
 .pipe(concat('vendors.js'))
 .pipe(dest('./dist'))    ; 
@@ -36,10 +37,11 @@ function scripts() {
 
 function styles() {
     console.log('building styles');
-    return src('./src/styles.sass')
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(sourcemaps.write())
+    return src('./node_modules/imagelightbox/dist/imagelightbox.min.css')
+    // return src('./src/styles.sass')
+    // .pipe(sourcemaps.init())
+    // .pipe(sass())
+    // .pipe(sourcemaps.write())
     .pipe(dest('./dist'));
 }
 
